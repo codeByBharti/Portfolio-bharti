@@ -164,7 +164,7 @@ export default function Achievements() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight relative pb-5 inline-block font-heading"
             >
               Achievements &amp; Certifications
@@ -172,7 +172,7 @@ export default function Achievements() {
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                transition={{ duration: 1.4, ease: "easeOut", delay: 0.2 }}
                 className="absolute bottom-0 left-0 h-[3px] w-full origin-left rounded-full"
                 style={{
                   background:
@@ -185,7 +185,7 @@ export default function Achievements() {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
               className="mt-5 text-base text-text-muted max-w-xl font-light font-sans leading-relaxed"
             >
               Milestones, published scientific papers, and honors earned at national hackathons and expositions.

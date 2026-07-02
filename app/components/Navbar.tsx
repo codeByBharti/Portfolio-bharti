@@ -105,7 +105,7 @@ export default function Navbar() {
           initial={{ y: -100, x: "-50%", opacity: 0 }}
           animate={{ y: 0, x: "-50%", opacity: 1 }}
           exit={{ y: -100, x: "-50%", opacity: 0 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="fixed top-6 left-1/2 w-[90%] max-w-4xl h-16 rounded-2xl glass-card z-[100] flex items-center justify-between px-6 sm:px-8 border border-white/8 backdrop-blur-lg select-none"
           style={{
             backgroundColor: "rgba(19, 18, 26, 0.45)",

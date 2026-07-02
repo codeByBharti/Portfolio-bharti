@@ -17,7 +17,7 @@ export default function Reveal({ children, className = "", delay = 0 }: RevealPr
       transition={{
         duration: 0.8,
         delay: delay,
-        ease: [0.16, 1, 0.3, 1], // easeOutExpo
+        ease: "easeOut", // easeOutExpo
       }}
       className={className}
     >

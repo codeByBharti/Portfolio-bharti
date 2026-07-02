@@ -74,7 +74,7 @@ function SkillPill({
       initial={{ opacity: 0, scale: 0.85, y: 12 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.55, delay, ease: "easeOut" }}
       className="skill-pill"
     >
       <span
@@ -105,7 +105,7 @@ function CategoryPanel({
       ref={ref}
       initial={{ opacity: 0, y: 50, scale: 0.96 }}
       animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-      transition={{ duration: 0.75, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.75, delay: index * 0.1, ease: "easeOut" }}
       className="glass-card p-6 sm:p-7 flex flex-col gap-5 relative overflow-hidden h-full"
       style={{ borderColor: category.accentBorder }}
     >
@@ -191,7 +191,7 @@ export default function Skills() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight relative pb-5 inline-block font-heading"
             >
               Tech Stack
@@ -200,7 +200,7 @@ export default function Skills() {
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                transition={{ duration: 1.4, ease: "easeOut", delay: 0.2 }}
                 className="absolute bottom-0 left-0 h-[3px] w-full origin-left rounded-full"
                 style={{
                   background:
@@ -213,7 +213,7 @@ export default function Skills() {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
               className="mt-5 text-base text-text-muted max-w-xl font-light font-sans leading-relaxed"
             >
               A curated toolkit I reach for — from architecting backends to shipping polished UIs and integrating LLMs.

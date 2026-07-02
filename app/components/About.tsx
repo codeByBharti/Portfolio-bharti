@@ -103,7 +103,7 @@ export default function About() {
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
               className="absolute bottom-0 left-0 h-[3px] w-full bg-gradient-to-r from-aurora-violet via-aurora-magenta to-aurora-cyan origin-left rounded-full"
             />
           </h2>
