@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
+import { motion, useInView, useMotionValue, useTransform, animate, Variants } from "framer-motion";
 import { useRef, useEffect } from "react";
 import Reveal from "./Reveal";
 import { GraduationCap, Calendar, Award, MapPin } from "lucide-react";
@@ -58,7 +58,7 @@ export default function About() {
   ];
 
   // Motion variants for stagger card entry
-  const statsContainerVariants = {
+  const statsContainerVariants: Variants = {
     hidden: {},
     visible: {
       transition: {
@@ -67,7 +67,7 @@ export default function About() {
     },
   };
 
-  const statCardVariants = {
+  const statCardVariants: Variants = {
     hidden: { 
       opacity: 0, 
       x: 80, 
@@ -80,7 +80,7 @@ export default function About() {
       rotate: 0,
       scale: 1,
       transition: {
-        type: "spring" as const,
+        type: "spring",
         stiffness: 100,
         damping: 18,
         mass: 0.8,

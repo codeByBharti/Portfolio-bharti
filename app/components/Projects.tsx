@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 import { Sparkles, ArrowUpRight, FileText, GraduationCap, Coins, MessageSquare, ShoppingCart } from "lucide-react";
 
@@ -40,7 +40,7 @@ function ProjectCard({ project, idx }: { project: ProjectData; idx: number }) {
   const revealRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(revealRef, { once: true, margin: "-40px" });
 
-  const revealVariants = {
+  const revealVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,

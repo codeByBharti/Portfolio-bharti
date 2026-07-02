@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring, Variants } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Mail, Phone, MapPin, ArrowRight, ChevronDown } from "lucide-react";
 import dynamic from "next/dynamic";
@@ -88,7 +88,7 @@ export default function Hero() {
   const line2Words = ["AI-Powered", "Products."];
 
   // Motion variants for entrance animations
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -99,7 +99,7 @@ export default function Hero() {
     },
   };
 
-  const badgeVariants = {
+  const badgeVariants: Variants = {
     hidden: { opacity: 0, y: -20, scale: 0.95 },
     visible: {
       opacity: 1,
@@ -112,7 +112,7 @@ export default function Hero() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -124,7 +124,7 @@ export default function Hero() {
     },
   };
 
-  const headlineContainerVariants = {
+  const headlineContainerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -134,7 +134,7 @@ export default function Hero() {
     },
   };
 
-  const wordVariants = {
+  const wordVariants: Variants = {
     hidden: { opacity: 0, y: 30, scale: 0.97 },
     visible: {
       opacity: 1,
