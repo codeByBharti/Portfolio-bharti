@@ -16,15 +16,18 @@ function OrbitRing({ rx, ry }: { rx: number; ry: number }) {
     return arr;
   }, [rx, ry]);
 
-  const lineGeometry = useMemo(() => {
-    return new THREE.BufferGeometry().setFromPoints(points);
+  const lineObject = useMemo(() => {
+    const geometry = new THREE.BufferGeometry().setFromPoints(points);
+    const material = new THREE.LineBasicMaterial({
+      color: "#ffffff",
+      opacity: 0.06,
+      transparent: true,
+      depthWrite: false,
+    });
+    return new THREE.Line(geometry, material);
   }, [points]);
 
-  return (
-    <line geometry={lineGeometry}>
-      <lineBasicMaterial color="#ffffff" opacity={0.06} transparent depthWrite={false} />
-    </line>
-  );
+  return <primitive object={lineObject} />;
 }
 
 // ─── Orbiting Sphere Component ───────────────────────────────────────────────
