@@ -1,26 +1,170 @@
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@600,700,800&display=swap');
 @import "tailwindcss";
 
+
+@theme {
+  --color-background: #07070A;
+  --color-surface: #13121A;
+  --color-aurora-violet: #8B5CF6;
+  --color-aurora-magenta: #F43F9E;
+  --color-aurora-cyan: #22D3EE;
+  --color-text-primary: #F5F5F7;
+  --color-text-muted: #9CA3AF;
+  --color-border-glow: rgba(244, 63, 158, 0.22);
+
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-heading: "General Sans", sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #07070A;
+  --foreground: #F5F5F7;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  cursor: auto;
+}
+
+a, button, [role="button"], label[for], input[type="submit"], input[type="button"] {
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+
+/* Drifting background blobs animations */
+@keyframes float-blob-one {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(40px, -60px) scale(1.1); }
+  66% { transform: translate(-30px, 30px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes float-blob-two {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(-50px, 50px) scale(0.9); }
+  66% { transform: translate(50px, -30px) scale(1.15); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes float-blob-three {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(50px, -40px) scale(1.05); }
+  66% { transform: translate(-40px, 50px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@utility animate-blob-one {
+  animation: float-blob-one 20s ease-in-out infinite;
+}
+
+@utility animate-blob-two {
+  animation: float-blob-two 25s ease-in-out infinite;
+}
+
+@utility animate-blob-three {
+  animation: float-blob-three 22s ease-in-out infinite;
+}
+
+/* Glassmorphism card utility */
+@utility glass-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--color-border-glow);
+  border-radius: 1rem;
+}
+
+@utility glass-circle {
+  background-color: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--color-border-glow);
+  border-radius: 9999px;
+}
+
+/* Aurora glow shadow utility */
+@utility glow-aurora {
+  box-shadow: 
+    0 0 10px rgba(139, 92, 246, 0.06),
+    0 0 25px rgba(244, 63, 158, 0.06),
+    0 0 40px rgba(34, 211, 238, 0.06);
+}
+
+/* Softer glow shadow utility for elements like the hero button */
+@utility glow-aurora-subtle {
+  box-shadow: 
+    0 0 6px rgba(139, 92, 246, 0.04),
+    0 0 15px rgba(244, 63, 158, 0.04),
+    0 0 25px rgba(34, 211, 238, 0.04);
+}
+
+/* Aurora animated border utility */
+@utility aurora-border {
+  position: relative;
+  border-radius: inherit;
+  background: transparent;
+  padding: 1px;
+  overflow: hidden;
+  z-index: 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      from 0deg,
+      var(--color-aurora-violet),
+      var(--color-aurora-magenta),
+      var(--color-aurora-cyan),
+      var(--color-aurora-violet)
+    );
+    animation: rotate-aurora 15s linear infinite;
+    z-index: -2;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: rgba(19, 18, 26, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: inherit;
+    z-index: -1;
+  }
+}
+
+@keyframes rotate-aurora {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes text-gradient-aurora {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@utility text-gradient-animate {
+  background: linear-gradient(
+    to right,
+    var(--color-aurora-violet),
+    var(--color-aurora-magenta),
+    var(--color-aurora-cyan),
+    var(--color-aurora-violet)
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-gradient-aurora 6s ease infinite;
 }
