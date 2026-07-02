@@ -80,7 +80,7 @@ export default function About() {
       rotate: 0,
       scale: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
         damping: 18,
         mass: 0.8,
